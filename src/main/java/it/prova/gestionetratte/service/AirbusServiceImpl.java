@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import it.prova.gestionetratte.model.Airbus;
-import it.prova.raccoltafilmspringrest.model.Regista;
-import it.prova.raccoltafilmspringrest.web.api.exception.RegistaNotFoundException;
+import it.prova.gestionetratte.repository.airbus.AirbusRepository;
+import it.prova.gestionetratte.web.api.exception.AirbusNotFoundException;
 
 public class AirbusServiceImpl implements AirbusService{
 	
@@ -46,9 +46,7 @@ public class AirbusServiceImpl implements AirbusService{
 	@Override
 	public void rimuovi(Long idToRemove) {
 		repository.findById(idToRemove)
-		.orElseThrow(() -> new RegistaNotFoundException("Airbus not found con id: " + idToRemove));
-		repository.deleteById(idToRemove);
-		
+		.orElseThrow(() -> new AirbusNotFoundException("Airbus not found con id: " + idToRemove));
+		repository.deleteById(idToRemove);	
 	}
-
 }

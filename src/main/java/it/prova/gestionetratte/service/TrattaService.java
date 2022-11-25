@@ -4,7 +4,6 @@ import java.util.List;
 
 import it.prova.gestionetratte.model.Tratta;
 
-
 public interface TrattaService {
 	
 	List<Tratta> listAllElements(boolean eager);
@@ -18,7 +17,5 @@ public interface TrattaService {
 	Tratta inserisciNuovo(Tratta trattaInstance);
 
 	void rimuovi(Long idToRemove);
-
-	List<Tratta> findByExample(Tratta example);
 
 }
