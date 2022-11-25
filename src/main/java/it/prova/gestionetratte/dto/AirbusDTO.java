@@ -53,19 +53,6 @@ public class AirbusDTO {
 		this.numeroPasseggeri = numeroPasseggeri;
 	}
 
-	public AirbusDTO(Long id, @NotBlank(message = "{codice.notblank}") String codice,
-			@NotBlank(message = "{descrizione.notblank}") String descrizione,
-			@NotNull(message = "{dataInizioServizio.notblank}") Date dataInizioServizio,
-			@NotNull(message = "{numeroPasseggeri.notblank}") Integer numeroPasseggeri, Set<TrattaDTO> tratte) {
-		super();
-		this.id = id;
-		this.codice = codice;
-		this.descrizione = descrizione;
-		this.dataInizioServizio = dataInizioServizio;
-		this.numeroPasseggeri = numeroPasseggeri;
-		this.tratte = tratte;
-	}
-
 	public Long getId() {
 		return id;
 	}

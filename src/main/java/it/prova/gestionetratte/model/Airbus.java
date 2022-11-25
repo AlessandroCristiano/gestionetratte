@@ -44,17 +44,6 @@ public class Airbus {
 		super();
 	}
 
-	public Airbus(Long id, String codice, String descrizione, Date dataInizioServizio, Integer numeroPasseggeri,
-			Set<Tratta> tratte) {
-		super();
-		this.id = id;
-		this.codice = codice;
-		this.descrizione = descrizione;
-		this.dataInizioServizio = dataInizioServizio;
-		this.numeroPasseggeri = numeroPasseggeri;
-		this.tratte = tratte;
-	}
-
 	public Airbus(Long id, String codice, String descrizione, Date dataInizioServizio, Integer numeroPasseggeri) {
 		super();
 		this.id = id;
@@ -63,18 +52,6 @@ public class Airbus {
 		this.dataInizioServizio = dataInizioServizio;
 		this.numeroPasseggeri = numeroPasseggeri;
 	}
-
-	public Airbus(String codice, String descrizione, Date dataInizioServizio, Integer numeroPasseggeri,
-			Set<Tratta> tratte) {
-		super();
-		this.codice = codice;
-		this.descrizione = descrizione;
-		this.dataInizioServizio = dataInizioServizio;
-		this.numeroPasseggeri = numeroPasseggeri;
-		this.tratte = tratte;
-	}
-
-
 
 	public Long getId() {
 		return id;

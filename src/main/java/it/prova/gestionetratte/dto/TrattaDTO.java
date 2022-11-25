@@ -53,21 +53,6 @@ public class TrattaDTO {
 	public TrattaDTO(Long id,
 			@NotBlank(message = "{codice.notblank}") @Size(min = 4, max = 4, message = "Il valore inserito '${validatedValue}' deve essere lungo tra {min} e {max} caratteri") String codice,
 			@NotBlank(message = "{descrizione.notblank}") String descrizione, LocalDate data, LocalTime oraDecollo,
-			LocalTime oraAtterraggio, @NotNull(message = "{stato.notblank}") Stato stato, AirbusDTO airbus) {
-		super();
-		this.id = id;
-		this.codice = codice;
-		this.descrizione = descrizione;
-		this.data = data;
-		this.oraDecollo = oraDecollo;
-		this.oraAtterraggio = oraAtterraggio;
-		this.stato = stato;
-		this.airbus = airbus;
-	}
-
-	public TrattaDTO(Long id,
-			@NotBlank(message = "{codice.notblank}") @Size(min = 4, max = 4, message = "Il valore inserito '${validatedValue}' deve essere lungo tra {min} e {max} caratteri") String codice,
-			@NotBlank(message = "{descrizione.notblank}") String descrizione, LocalDate data, LocalTime oraDecollo,
 			LocalTime oraAtterraggio, @NotNull(message = "{stato.notblank}") Stato stato) {
 		super();
 		this.id = id;

@@ -56,31 +56,6 @@ public class Tratta {
 		super();
 	}
 
-	public Tratta(String codice, String descrizione, LocalDate data, LocalTime oraDecollo, LocalTime oraAtterraggio,
-			Stato stato, Airbus airbus) {
-		super();
-		this.codice = codice;
-		this.descrizione = descrizione;
-		this.data = data;
-		this.oraDecollo = oraDecollo;
-		this.oraAtterraggio = oraAtterraggio;
-		this.stato = stato;
-		this.airbus = airbus;
-	}
-
-	public Tratta(Long id, String codice, String descrizione, LocalDate data, LocalTime oraDecollo,
-			LocalTime oraAtterraggio, Stato stato, Airbus airbus) {
-		super();
-		this.id = id;
-		this.codice = codice;
-		this.descrizione = descrizione;
-		this.data = data;
-		this.oraDecollo = oraDecollo;
-		this.oraAtterraggio = oraAtterraggio;
-		this.stato = stato;
-		this.airbus = airbus;
-	}
-
 	public Tratta(Long id, String codice, String descrizione, LocalDate data, LocalTime oraDecollo,
 			LocalTime oraAtterraggio, Stato stato) {
 		super();
