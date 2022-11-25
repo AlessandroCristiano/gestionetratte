@@ -15,6 +15,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 
 @Entity
@@ -76,6 +79,18 @@ public class Tratta {
 		this.oraAtterraggio = oraAtterraggio;
 		this.stato = stato;
 		this.airbus = airbus;
+	}
+
+	public Tratta(Long id, String codice, String descrizione, LocalDate data, LocalTime oraDecollo,
+			LocalTime oraAtterraggio, Stato stato) {
+		super();
+		this.id = id;
+		this.codice = codice;
+		this.descrizione = descrizione;
+		this.data = data;
+		this.oraDecollo = oraDecollo;
+		this.oraAtterraggio = oraAtterraggio;
+		this.stato = stato;
 	}
 
 	public Long getId() {

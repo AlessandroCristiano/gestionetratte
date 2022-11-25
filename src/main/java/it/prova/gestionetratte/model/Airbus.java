@@ -12,6 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 
 @Entity
@@ -53,6 +55,15 @@ public class Airbus {
 		this.tratte = tratte;
 	}
 
+	public Airbus(Long id, String codice, String descrizione, Date dataInizioServizio, Integer numeroPasseggeri) {
+		super();
+		this.id = id;
+		this.codice = codice;
+		this.descrizione = descrizione;
+		this.dataInizioServizio = dataInizioServizio;
+		this.numeroPasseggeri = numeroPasseggeri;
+	}
+
 	public Airbus(String codice, String descrizione, Date dataInizioServizio, Integer numeroPasseggeri,
 			Set<Tratta> tratte) {
 		super();
@@ -62,6 +73,8 @@ public class Airbus {
 		this.numeroPasseggeri = numeroPasseggeri;
 		this.tratte = tratte;
 	}
+
+
 
 	public Long getId() {
 		return id;
