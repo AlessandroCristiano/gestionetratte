@@ -19,5 +19,7 @@ public interface TrattaService {
 	void rimuovi(Long idToRemove);
 	
 	List<Tratta> findByCodiceAndDescrizione(String codice, String descrizione);
+	
+	void concludiTratte();
 
 }

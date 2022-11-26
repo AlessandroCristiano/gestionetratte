@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
+import it.prova.gestionetratte.model.Stato;
 import it.prova.gestionetratte.model.Tratta;
 
 public interface TrattaRepository extends CrudRepository<Tratta, Long>, CustomTrattaRepository{
@@ -16,5 +17,7 @@ public interface TrattaRepository extends CrudRepository<Tratta, Long>, CustomTr
 	Tratta findSingleTrattaEager(Long id);
 	
 	List<Tratta> findByCodiceAndDescrizione(String codice, String descrizione);
+	
+	List<Tratta> findAllByStato(Stato stato);
 
 }
