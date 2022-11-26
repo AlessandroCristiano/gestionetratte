@@ -1,5 +1,6 @@
 package it.prova.gestionetratte.model;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -32,7 +33,7 @@ public class Airbus {
 	private String descrizione;
 	
 	@Column(name = "datainizioservizio")
-	private Date dataInizioServizio;
+	private LocalDate dataInizioServizio;
 	
 	@Column(name = "numeropasseggeri")
 	private Integer numeroPasseggeri;
@@ -44,9 +45,17 @@ public class Airbus {
 		super();
 	}
 
-	public Airbus(Long id, String codice, String descrizione, Date dataInizioServizio, Integer numeroPasseggeri) {
+	public Airbus(Long id, String codice, String descrizione, LocalDate dataInizioServizio, Integer numeroPasseggeri) {
 		super();
 		this.id = id;
+		this.codice = codice;
+		this.descrizione = descrizione;
+		this.dataInizioServizio = dataInizioServizio;
+		this.numeroPasseggeri = numeroPasseggeri;
+	}
+
+	public Airbus(String codice, String descrizione, LocalDate dataInizioServizio, Integer numeroPasseggeri) {
+		super();
 		this.codice = codice;
 		this.descrizione = descrizione;
 		this.dataInizioServizio = dataInizioServizio;
@@ -77,11 +86,11 @@ public class Airbus {
 		this.descrizione = descrizione;
 	}
 
-	public Date getDataInizioServizio() {
+	public LocalDate getDataInizioServizio() {
 		return dataInizioServizio;
 	}
 
-	public void setDataInizioServizio(Date dataInizioServizio) {
+	public void setDataInizioServizio(LocalDate dataInizioServizio) {
 		this.dataInizioServizio = dataInizioServizio;
 	}
 

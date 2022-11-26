@@ -3,11 +3,13 @@ package it.prova.gestionetratte.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import it.prova.gestionetratte.model.Airbus;
 import it.prova.gestionetratte.model.Tratta;
 import it.prova.gestionetratte.repository.tratta.TrattaRepository;
 import it.prova.gestionetratte.web.api.exception.TrattaNotFoundException;
-
+@Service
 public class TrattaServiceImpl implements TrattaService{
 	
 	@Autowired
@@ -46,6 +48,11 @@ public class TrattaServiceImpl implements TrattaService{
 		repository.findById(idToRemove)
 		.orElseThrow(() -> new TrattaNotFoundException("Tratta not found con id: " + idToRemove));
 		repository.deleteById(idToRemove);
+	}
+	
+	@Override
+	public List<Tratta> findByCodiceAndDescrizione(String codice, String descrizione) {
+		return repository.findByCodiceAndDescrizione(codice, descrizione);
 	}
 
 }

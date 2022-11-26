@@ -24,7 +24,6 @@ public class TrattaDTO {
 	private Long id;
 	
 	@NotBlank(message = "{codice.notblank}")
-	@Size(min = 4, max = 4, message = "Il valore inserito '${validatedValue}' deve essere lungo tra {min} e {max} caratteri")
 	private String codice;
 	
 	@NotBlank(message = "{descrizione.notblank}")

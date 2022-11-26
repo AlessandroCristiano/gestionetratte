@@ -15,4 +15,6 @@ public interface AirbusRepository extends CrudRepository<Airbus, Long>, CustomAi
 	@Query("from Airbus a left join fetch a.tratte where a.id=?1")
 	Airbus findByIdEager(Long idAirbus);
 
+	Airbus findByCodiceAndDescrizione(String codice, String descrizione);
+
 }

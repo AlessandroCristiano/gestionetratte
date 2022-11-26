@@ -19,5 +19,7 @@ public interface AirbusService {
 	Airbus inserisciNuovo(Airbus airbusInstance);
 
 	void rimuovi(Long idToRemove);
+	
+	Airbus findByCodiceAndDescrizione(String codice, String descrizione);
 		
 }

@@ -1,5 +1,6 @@
 package it.prova.gestionetratte.dto;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -28,7 +29,7 @@ public class AirbusDTO {
 	private String descrizione;
 	
 	@NotNull(message = "{dataInizioServizio.notblank}")
-	private Date dataInizioServizio;
+	private LocalDate dataInizioServizio;
 	
 	@NotNull(message = "{numeroPasseggeri.notblank}")
 	@Min(1)
@@ -43,7 +44,7 @@ public class AirbusDTO {
 
 	public AirbusDTO(Long id, @NotBlank(message = "{codice.notblank}") String codice,
 			@NotBlank(message = "{descrizione.notblank}") String descrizione,
-			@NotNull(message = "{dataInizioServizio.notblank}") Date dataInizioServizio,
+			@NotNull(message = "{dataInizioServizio.notblank}") LocalDate dataInizioServizio,
 			@NotNull(message = "{numeroPasseggeri.notblank}") Integer numeroPasseggeri) {
 		super();
 		this.id = id;
@@ -77,11 +78,11 @@ public class AirbusDTO {
 		this.descrizione = descrizione;
 	}
 
-	public Date getDataInizioServizio() {
+	public LocalDate getDataInizioServizio() {
 		return dataInizioServizio;
 	}
 
-	public void setDataInizioServizio(Date dataInizioServizio) {
+	public void setDataInizioServizio(LocalDate dataInizioServizio) {
 		this.dataInizioServizio = dataInizioServizio;
 	}
 
