@@ -76,6 +76,7 @@ public class TrattaController {
 	}
 	
 	@GetMapping("/concludiTratte")
+	@ResponseStatus(HttpStatus.OK)
 	public List<TrattaDTO> concludiTratte(){
 		trattaService.concludiTratte();
 		

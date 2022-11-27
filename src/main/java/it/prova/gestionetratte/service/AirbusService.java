@@ -1,7 +1,9 @@
 package it.prova.gestionetratte.service;
 
 import java.util.List;
+import java.util.Map;
 
+import it.prova.gestionetratte.dto.AirbusDTO;
 import it.prova.gestionetratte.model.Airbus;
 
 public interface AirbusService {
@@ -21,5 +23,7 @@ public interface AirbusService {
 	void rimuovi(Long idToRemove);
 	
 	Airbus findByCodiceAndDescrizione(String codice, String descrizione);
+	
+	List<AirbusDTO> listAirbusConSovrapposizioni();
 		
 }

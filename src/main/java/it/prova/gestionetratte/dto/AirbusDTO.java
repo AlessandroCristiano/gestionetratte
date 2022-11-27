@@ -35,6 +35,8 @@ public class AirbusDTO {
 	@Min(1)
 	private Integer numeroPasseggeri;
 	
+	private boolean conSovrapposizioni;
+	
 	@JsonIgnoreProperties(value = { "airbus" })
 	private Set<TrattaDTO> tratte = new HashSet<TrattaDTO>(0);
 
@@ -92,6 +94,14 @@ public class AirbusDTO {
 
 	public void setNumeroPasseggeri(Integer numeroPasseggeri) {
 		this.numeroPasseggeri = numeroPasseggeri;
+	}
+	
+	public boolean isConSovrapposizioni() {
+		return conSovrapposizioni;
+	}
+
+	public void setConSovrapposizioni(boolean conSovrapposizioni) {
+		this.conSovrapposizioni = conSovrapposizioni;
 	}
 
 	public Set<TrattaDTO> getTratte() {

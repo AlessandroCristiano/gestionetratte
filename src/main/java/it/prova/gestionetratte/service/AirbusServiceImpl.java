@@ -1,11 +1,19 @@
 package it.prova.gestionetratte.service;
 
+import java.time.LocalDate;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import it.prova.gestionetratte.dto.AirbusDTO;
+import it.prova.gestionetratte.dto.TrattaDTO;
 import it.prova.gestionetratte.model.Airbus;
+import it.prova.gestionetratte.model.Tratta;
 import it.prova.gestionetratte.repository.airbus.AirbusRepository;
 import it.prova.gestionetratte.web.api.exception.AirbusContainTratteException;
 import it.prova.gestionetratte.web.api.exception.AirbusNotFoundException;
@@ -63,4 +71,28 @@ public class AirbusServiceImpl implements AirbusService{
 	public Airbus findByCodiceAndDescrizione(String codice, String descrizione) {
 		return repository.findByCodiceAndDescrizione(codice, descrizione);
 	}
+
+	@Override
+	public List<AirbusDTO> listAirbusConSovrapposizioni() {
+
+		List<AirbusDTO> listaAirbus = AirbusDTO.createAirbusDTOListFromModelList(repository.findAllEager(), false);
+
+		for (AirbusDTO elementoAirbus : listaAirbus) {
+			for (TrattaDTO elementoTratta : elementoAirbus.getTratte()) {
+				for (TrattaDTO singolaTratta : elementoAirbus.getTratte()) {
+					if ((singolaTratta.getData().isEqual(elementoTratta.getData())
+							&& singolaTratta.getOraDecollo().isAfter(elementoTratta.getOraDecollo())
+							&& singolaTratta.getOraDecollo().isBefore(elementoTratta.getOraAtterraggio()))
+							|| (singolaTratta.getData().isEqual(elementoTratta.getData())
+									&& singolaTratta.getOraAtterraggio().isAfter(elementoTratta.getOraDecollo())
+									&& singolaTratta.getOraAtterraggio()
+											.isBefore(elementoTratta.getOraAtterraggio()))) {
+						elementoAirbus.setConSovrapposizioni(true);
+					}
+				}
+			}
+		}
+		return listaAirbus;
+	}
+
 }
