@@ -35,7 +35,7 @@ public class AirbusDTO {
 	@Min(1)
 	private Integer numeroPasseggeri;
 	
-	private boolean conSovrapposizioni;
+	private Boolean conSovrapposizioni;
 	
 	@JsonIgnoreProperties(value = { "airbus" })
 	private Set<TrattaDTO> tratte = new HashSet<TrattaDTO>(0);
@@ -96,11 +96,11 @@ public class AirbusDTO {
 		this.numeroPasseggeri = numeroPasseggeri;
 	}
 	
-	public boolean isConSovrapposizioni() {
+	public Boolean isConSovrapposizioni() {
 		return conSovrapposizioni;
 	}
 
-	public void setConSovrapposizioni(boolean conSovrapposizioni) {
+	public void setConSovrapposizioni(Boolean conSovrapposizioni) {
 		this.conSovrapposizioni = conSovrapposizioni;
 	}
 
@@ -125,11 +125,13 @@ public class AirbusDTO {
 		return result;
 	}
 	
-	public static List<AirbusDTO> createAirbusDTOListFromModelList(List<Airbus> modelListInput, boolean includeTratte){
+	public static List<AirbusDTO> createAirbusDTOListFromModelList(List<Airbus> modelListInput, boolean includeTratte, boolean includeSovrapposizioni){
 		return modelListInput.stream().map(airbusEntity -> {
 			AirbusDTO result = AirbusDTO.buildAirbusDTOFromModel(airbusEntity,includeTratte);
 			if(includeTratte)
 				result.setTratte(TrattaDTO.createTrattaDTOSetFromModelSet(airbusEntity.getTratte(), false));
+			if(includeSovrapposizioni)
+				result.setConSovrapposizioni(true);
 			return result;
 		}).collect(Collectors.toList());
 	}

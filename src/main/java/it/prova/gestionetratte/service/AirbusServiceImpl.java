@@ -6,6 +6,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -75,7 +76,7 @@ public class AirbusServiceImpl implements AirbusService{
 	@Override
 	public List<AirbusDTO> listAirbusConSovrapposizioni() {
 
-		List<AirbusDTO> listaAirbus = AirbusDTO.createAirbusDTOListFromModelList(repository.findAllEager(), false);
+		List<AirbusDTO> listaAirbus = AirbusDTO.createAirbusDTOListFromModelList(repository.findAllEager(), true, false);
 
 		for (AirbusDTO elementoAirbus : listaAirbus) {
 			for (TrattaDTO elementoTratta : elementoAirbus.getTratte()) {
@@ -92,6 +93,11 @@ public class AirbusServiceImpl implements AirbusService{
 				}
 			}
 		}
+		listaAirbus.stream().map(airbusEntity -> {
+				airbusEntity.setTratte(null);
+				return airbusEntity;
+			}).collect(Collectors.toList());
+		
 		return listaAirbus;
 	}
 
